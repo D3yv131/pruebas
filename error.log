@@ -1,0 +1,106 @@
+root@Deyvi-LAB:/media/sf_ubuntu/app/holamundo# docker compose up
+WARN[0000] /media/sf_ubuntu/app/holamundo/docker-compose.yml: `version` is obsolete
+[+] Running 10/10
+ ✔ db Pulled                                                                                                                                           102.3s
+   ✔ 7007490126ef Pull complete                                                                                                                          3.8s
+   ✔ 97968f0a09f5 Pull complete                                                                                                                          1.3s
+   ✔ a51fbef5da04 Pull complete                                                                                                                          2.7s
+   ✔ 472492132201 Pull complete                                                                                                                          3.2s
+   ✔ a184e6b7d3fb Pull complete                                                                                                                          4.0s
+   ✔ 2759528c7f5f Pull complete                                                                                                                          4.4s
+   ✔ c283613406ab Pull complete                                                                                                                          5.0s
+   ✔ 5c0f328eeb1a Pull complete                                                                                                                         27.4s
+   ✔ 9a2f11884d2a Pull complete                                                                                                                          5.9s
+[+] Building 68.1s (20/20) FINISHED                                                                                                            docker:default
+ => [api internal] load .dockerignore                                                                                                                    0.5s
+ => => transferring context: 53B                                                                                                                         0.1s
+ => [api internal] load build definition from Dockerfile                                                                                                 0.7s
+ => => transferring dockerfile: 258B                                                                                                                     0.1s
+ => [app internal] load .dockerignore                                                                                                                    0.7s
+ => => transferring context: 53B                                                                                                                         0.1s
+ => [app internal] load build definition from Dockerfile                                                                                                 0.7s
+ => => transferring dockerfile: 251B                                                                                                                     0.1s
+ => [api internal] load metadata for docker.io/library/node:20.5.0-alpine3.18                                                                            2.6s
+ => [app 1/6] FROM docker.io/library/node:20.5.0-alpine3.18@sha256:efcfc9e818c3abe166cfcced1c9602cac29e08c83b273a4f280a87d4218daf8c                     44.2s
+ => => resolve docker.io/library/node:20.5.0-alpine3.18@sha256:efcfc9e818c3abe166cfcced1c9602cac29e08c83b273a4f280a87d4218daf8c                          0.3s
+ => => sha256:efcfc9e818c3abe166cfcced1c9602cac29e08c83b273a4f280a87d4218daf8c 1.22kB / 1.22kB                                                           0.0s
+ => => sha256:a5efe2f6dbaeb81297af5aa576c4c86311da0cecaa4d88325d9a18b05a007c3a 1.16kB / 1.16kB                                                           0.0s
+ => => sha256:53d2322c062782ca53741589b9b108d188917235a3986aa43060167727aa312f 6.73kB / 6.73kB                                                           0.0s
+ => => sha256:770e129e3ee433a58a422ce30acd6281193f33d6fd0adf3bbaff6a22640c40cb 2.34MB / 2.34MB                                                           2.4s
+ => => sha256:7264a8db6415046d36d16ba98b79778e18accee6ffa71850405994cffa9be7de 3.40MB / 3.40MB                                                           2.7s
+ => => sha256:e3bed09886f490914f2b1d6b2b0c3c7e5999710fa581679d4ee6aa5466cdcce0 49.44MB / 49.44MB                                                        12.0s
+ => => sha256:3bcd4968554f823de797b621b6a35bf166273bfb8cf23499899cc5fd0e9045f6 447B / 447B                                                               2.8s
+ => => extracting sha256:7264a8db6415046d36d16ba98b79778e18accee6ffa71850405994cffa9be7de                                                                1.8s
+ => => extracting sha256:e3bed09886f490914f2b1d6b2b0c3c7e5999710fa581679d4ee6aa5466cdcce0                                                               29.7s
+ => => extracting sha256:770e129e3ee433a58a422ce30acd6281193f33d6fd0adf3bbaff6a22640c40cb                                                                0.8s
+ => => extracting sha256:3bcd4968554f823de797b621b6a35bf166273bfb8cf23499899cc5fd0e9045f6                                                                0.0s
+ => [app internal] load build context                                                                                                                    0.6s
+ => => transferring context: 247.06kB                                                                                                                    0.3s
+ => [api internal] load build context                                                                                                                    0.4s
+ => => transferring context: 55.54kB                                                                                                                     0.1s
+ => [app 2/6] RUN addgroup react && adduser -S -G react react                                                                                            2.2s
+ => [api 2/6] RUN addgroup nodeapp && adduser -S -G nodeapp nodeapp                                                                                      2.2s
+ => [api 3/6] WORKDIR /app/                                                                                                                              0.7s
+ => [app 3/6] WORKDIR /app/                                                                                                                              0.7s
+ => [api 4/6] COPY --chown=nodeapp package*.json .                                                                                                       0.4s
+ => [app 4/6] COPY --chown=react package*.json .                                                                                                         0.4s
+ => [api 5/6] RUN npm install                                                                                                                            8.9s
+ => [app 5/6] RUN npm install                                                                                                                           13.2s
+ => [api 6/6] COPY --chown=nodeapp . .                                                                                                                   1.6s
+ => [api] exporting to image                                                                                                                             1.6s
+ => => exporting layers                                                                                                                                  1.6s
+ => => writing image sha256:02cfbe5fa7af3fb3e75817b4f1f91a73e530e3edbeae3db402adc50d047bd007                                                             0.0s
+ => => naming to docker.io/library/holamundo-api                                                                                                         0.0s
+ => [app 6/6] COPY --chown=react . .                                                                                                                     0.3s
+ => [app] exporting to image                                                                                                                             3.3s
+ => => exporting layers                                                                                                                                  3.2s
+ => => writing image sha256:4d8445034fa3e3d9e6940b2eddb173eb9ce7cf7c3c439bcdedd816a777bba5e4                                                             0.0s
+ => => naming to docker.io/library/holamundo-app                                                                                                         0.0s
+[+] Running 2/4
+ ✔ Network holamundo_default  Created                                                                                                                    0.2s
+ ✔ Volume "holamundo_gamify"  Created                                                                                                                    0.0s
+ ⠸ Container holamundo-app-1  Created                                                                                                                    0.3s
+ ⠸ Container holamundo-db-1   Created                                                                                                                    0.3s
+ ⠋ Container holamundo-api-1  Created                                                                                                                    0.1s
+Attaching to api-1, app-1, db-1
+db-1   |
+db-1   | WARNING: MongoDB 5.0+ requires a CPU with AVX support, and your current system does not appear to have that!
+db-1   |   see https://jira.mongodb.org/browse/SERVER-54407
+db-1   |   see also https://www.mongodb.com/community/forums/t/mongodb-5-0-cpu-intel-g4650-compatibility/116610/2
+db-1   |   see also https://github.com/docker-library/mongo/issues/485#issuecomment-891991814
+db-1   |
+db-1 exited with code 132
+app-1  |
+app-1  | > holamundo@0.0.0 dev
+app-1  | > vite --host
+app-1  |
+api-1  |
+api-1  | > backend@1.0.0 start
+api-1  | > nodemon ./app/index.js
+api-1  |
+app-1  |
+app-1  |   VITE v4.4.7  ready in 776 ms
+app-1  |
+app-1  |   ➜  Local:   http://localhost:5173/
+app-1  |   ➜  Network: http://172.18.0.3:5173/
+api-1  | [nodemon] 3.0.1
+api-1  | [nodemon] to restart at any time, enter `rs`
+api-1  | [nodemon] watching path(s): *.*
+api-1  | [nodemon] watching extensions: js,mjs,cjs,json
+api-1  | [nodemon] starting `node ./app/index.js index.js`
+api-1  | node:internal/modules/cjs/loader:1051
+api-1  |   throw err;
+api-1  |   ^
+api-1  |
+api-1  | Error: Cannot find module '/app/index.js'
+api-1  |     at Module._resolveFilename (node:internal/modules/cjs/loader:1048:15)
+api-1  |     at Module._load (node:internal/modules/cjs/loader:901:27)
+api-1  |     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:83:12)
+api-1  |     at node:internal/main/run_main_module:23:47 {
+api-1  |   code: 'MODULE_NOT_FOUND',
+api-1  |   requireStack: []
+api-1  | }
+api-1  |
+api-1  | Node.js v20.5.0
+api-1  | [nodemon] app crashed - waiting for file changes before starting...
+
